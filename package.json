@@ -1,0 +1,41 @@
+{
+  "name": "zkademt1",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@sap/xb-msg-amqp-v100": "latest",
+    "@cap-js/sqlite": "^1",
+    "@sap/eslint-plugin-cds": "^3",
+    "eslint": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "messaging": {
+        "publishPrefix": "$namespace/",
+        "subscribePrefix": "sap/S4HANAOD/ZMSG/",
+        "queue": {
+          "name": "$namespace/ZKAD_Product"
+        },
+        "[development]": {
+          "kind": "file-based-messaging"
+        },
+        "[hybrid]": {
+          "kind": "enterprise-messaging-shared"
+        },
+        "[production]": {
+          "kind": "enterprise-messaging"
+        }
+      }
+    }
+  }
+}

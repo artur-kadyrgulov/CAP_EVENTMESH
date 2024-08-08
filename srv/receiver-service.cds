@@ -1,0 +1,1 @@
+service ReceiverService @(path: '/receiver') {}
